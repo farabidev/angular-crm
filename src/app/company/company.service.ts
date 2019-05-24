@@ -14,19 +14,12 @@ export class CompanyService {
   ) {
     this.loadCompanies();
 
-    //refresh every 5 seconds
-    //this.refreshData();
+    
   }
 
   API_BASE = 'http://firebootcamp-crm-api.azurewebsites.net/api';
 
   companies$: BehaviorSubject<Company[]> = new BehaviorSubject<Company[]>([]);
-
-  refreshData(){
-      setInterval(() => {
-        this.loadCompanies();
-      }, 5000);
-  }
 
   loadCompanies(){
     return this.httpClient.get<Company[]>(`${this.API_BASE}/company`)

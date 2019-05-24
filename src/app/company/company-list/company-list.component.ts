@@ -19,6 +19,15 @@ export class CompanyListComponent implements OnInit {
 
   ngOnInit() {
     this.loadCompanies();
+
+    //refresh every 5 seconds
+    //this.refreshData();
+  }
+
+  refreshData(){
+    setInterval(() => {
+      this.companyService.loadCompanies();
+    }, 5000);
   }
 
   loadCompanies(){

@@ -1,14 +1,25 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-
-  <input type="text" [(ngModel)]="title"/>
-
+<div class="container">
+  <nav class="navbar navbar-light bg-faded">
+    <a class="navbar-brand">FireBootCamp CRM</a>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" [routerLinkActive]="'active'">
+        <a class="nav-link" [routerLink]="['/company/list']">Companies ({{companiesCount$ | async}})</a>
+      </li>
+      <li class="nav-item" [routerLinkActive]="'active'">
+        <a class="nav-link" [routerLink]="['/admin']">Admin</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- <div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+    <input type="text" id="formTitle" class="form-control" [(ngModel)]="title">
+  </div> -->
 </div>
 
 <div class="container">
-    <fbc-company-list></fbc-company-list>
+  <router-outlet></router-outlet>
 </div>
 

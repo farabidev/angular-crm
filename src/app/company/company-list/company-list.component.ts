@@ -22,12 +22,13 @@ export class CompanyListComponent implements OnInit {
   }
 
   loadCompanies(){
-    this.companies$ = this.companyService.getCompanies()
-    .pipe(
-      tap(c => console.log('we have some companies', c))
-    );
+    this.companies$ = this.companyService.getCompanies();
+    // .pipe(
+    //   tap(c => console.log('we have some companies', c))
+    // );
   }
+
   deleteCompany(company: Company) {
-    this.companyService.deleteCompany(company.id).subscribe(c => this.loadCompanies());
+    this.companyService.deleteCompany(company.id);
   }
 }
